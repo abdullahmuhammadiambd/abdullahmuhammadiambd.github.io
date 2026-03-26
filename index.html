@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Abdullah Muhammad — Identity Profile</title>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&family=Noto+Serif+Bengali:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #1a1209;
+    --gold:       #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale:  #f5e8c0;
+    --cream:      #fdf8ed;
+    --parchment:  #f0e8d0;
+    --dark:       #2c1f0e;
+    --mid:        #6b4c2a;
+    --muted:      #9e8060;
+    --green:      #2d5a27;
+    --green-light:#4a8a41;
+  }
+
+  body {
+    background: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    font-family: 'DM Sans', sans-serif;
+    background-image:
+      radial-gradient(ellipse at 20% 20%, rgba(201,168,76,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(45,90,39,0.10) 0%, transparent 50%);
+  }
+
+  .card {
+    width: 100%;
+    max-width: 680px;
+    background: var(--cream);
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 1px rgba(201,168,76,0.4),
+      0 0 40px rgba(0,0,0,0.6),
+      0 60px 100px rgba(0,0,0,0.4);
+    animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(40px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  /* ── LANGUAGE BAR ── */
+  .lang-bar {
+    background: #110e07;
+    padding: 9px 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+  .lang-bar-label {
+    font-size: 9.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin-right: 6px;
+  }
+  .lang-btn {
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--muted);
+    font-size: 11px;
+    padding: 3px 11px;
+    border-radius: 2px;
+    cursor: pointer;
+    letter-spacing: 0.06em;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.18s;
+  }
+  .lang-btn:hover { border-color: rgba(201,168,76,0.5); color: var(--gold-light); }
+  .lang-btn.active { background: rgba(201,168,76,0.14); border-color: var(--gold); color: var(--gold-light); }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--dark);
+    padding: 48px 48px 36px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg, transparent, transparent 20px,
+      rgba(201,168,76,0.03) 20px, rgba(201,168,76,0.03) 21px
+    );
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom:0; left:0; right:0; height:3px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--gold-light), var(--gold), transparent);
+  }
+
+  .bismillah {
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    color: var(--gold);
+    text-align: center;
+    letter-spacing: 0.02em;
+    margin-bottom: 28px;
+    opacity: 0.9;
+  }
+
+  .avatar-ring {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 0 3px var(--dark), 0 0 0 5px var(--gold), 0 8px 24px rgba(201,168,76,0.3);
+  }
+  .avatar-initial {
+    font-family: 'Amiri', serif;
+    font-size: 38px; color: var(--dark);
+    font-weight: 700; line-height:1; padding-bottom:4px;
+  }
+
+  .name-block { text-align: center; }
+
+  .name-en {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px; font-weight: 700;
+    color: var(--cream); letter-spacing: 0.04em;
+    display: block; margin-bottom: 10px;
+  }
+  .name-rtl {
+    font-family: 'Amiri', serif;
+    font-size: 28px; color: var(--gold-light);
+    display: block; margin-bottom: 10px;
+    direction: rtl;
+  }
+  .name-bn {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 24px; color: var(--cream);
+    display: block; margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  /* ── TITLE ROW — inline with pipe dividers ── */
+  .title-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    margin-top: 4px;
+  }
+  .title-row .t-item {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    padding: 0 10px;
+  }
+  .title-row .t-pipe {
+    color: rgba(201,168,76,0.4);
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 300;
+  }
+  /* RTL title row */
+  .title-row.rtl { direction: rtl; }
+  .title-row.rtl .t-item {
+    font-family: 'Amiri', serif;
+    font-size: 15px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  /* Bengali title row */
+  .title-row.bn .t-item {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 13px;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .location-line {
+    text-align: center; margin-top: 14px;
+    color: var(--muted); font-size: 13px; letter-spacing: 0.05em;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+  .location-line i { font-size: 11px; color: var(--gold); }
+
+  /* ── SECTION ── */
+  .section {
+    padding: 28px 48px;
+    border-bottom: 1px solid rgba(180,150,90,0.2);
+  }
+  .section:last-child { border-bottom: none; }
+
+  /* section-label is now a switcher container */
+  .section-label {
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-label i { font-size: 11px; color: var(--green-light); }
+  .section-label::after {
+    content: ''; flex:1; height:1px;
+    background: linear-gradient(90deg, rgba(74,138,65,0.4), transparent);
+  }
+  /* the text inside section-label that switches */
+  .sl-text {
+    font-size: 10px; font-weight: 500;
+    color: var(--green-light); text-transform: uppercase; letter-spacing: 0.2em;
+  }
+  .sl-text.rtl {
+    font-family: 'Amiri', serif;
+    font-size: 14px; text-transform: none; letter-spacing: 0;
+    direction: rtl;
+  }
+  .sl-text.bn {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 12px; text-transform: none; letter-spacing: 0;
+  }
+
+  /* ── ABOUT ── */
+  .about-text {
+    font-size: 14.5px; line-height: 1.85;
+    color: var(--mid); font-weight: 300;
+  }
+  .about-text strong { color: var(--dark); font-weight: 500; }
+  .about-text.rtl {
+    font-family: 'Amiri', serif;
+    direction: rtl; text-align: right;
+    font-size: 16px; line-height: 2;
+  }
+  .about-text.bn {
+    font-family: 'Noto Serif Bengali', serif;
+    font-size: 14px; line-height: 2;
+  }
+
+  /* ── SKILLS ── */
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    background: var(--parchment);
+    border: 1px solid rgba(180,150,90,0.3);
+    border-radius: 2px; padding: 6px 14px;
+    font-size: 12.5px; color: var(--dark);
+    display: flex; align-items: center; gap: 7px;
+    transition: all 0.2s;
+  }
+  .skill-tag:hover { background: var(--gold-pale); border-color: var(--gold); transform: translateY(-1px); }
+  .skill-tag.primary { background: rgba(45,90,39,0.06); border-color: rgba(74,138,65,0.3); }
+  .skill-tag i { font-size: 10px; color: var(--gold); }
+  .skill-tag.primary i { color: var(--green-light); }
+  .skill-tag.rtl { font-family:'Amiri',serif; direction:rtl; font-size:15px; }
+  .skill-tag.bn  { font-family:'Noto Serif Bengali',serif; font-size:13px; }
+
+  /* ── STATS ── */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 1px; background: rgba(180,150,90,0.15);
+    border: 1px solid rgba(180,150,90,0.2); border-radius: 2px; overflow: hidden;
+  }
+  .stat { background: var(--cream); padding: 18px 16px; text-align: center; transition: background 0.2s; }
+  .stat:hover { background: var(--gold-pale); }
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700; color: var(--gold);
+    display: block; line-height:1; margin-bottom: 5px;
+  }
+  .stat-value.rtl { font-family:'Amiri',serif; font-size:17px; direction:rtl; }
+  .stat-value.bn  { font-family:'Noto Serif Bengali',serif; font-size:15px; }
+  .stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; }
+  .stat-label.rtl { font-family:'Amiri',serif; font-size:13px; direction:rtl; text-transform:none; letter-spacing:0; }
+  .stat-label.bn  { font-family:'Noto Serif Bengali',serif; font-size:11px; text-transform:none; letter-spacing:0; }
+
+  /* ── EDUCATION ── */
+  .edu-item { display:flex; gap:16px; align-items:flex-start; }
+  .edu-icon {
+    width:36px; height:36px;
+    background:var(--parchment); border:1px solid rgba(180,150,90,0.3);
+    border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .edu-icon i { font-size:15px; color:var(--gold); }
+  .edu-body { flex:1; }
+  .edu-title { font-family:'Playfair Display',serif; font-size:15px; color:var(--dark); font-weight:600; margin-bottom:3px; }
+  .edu-title.rtl { font-family:'Amiri',serif; direction:rtl; text-align:right; font-size:17px; }
+  .edu-title.bn  { font-family:'Noto Serif Bengali',serif; font-size:14px; }
+  .edu-sub { font-size:12.5px; color:var(--muted); }
+  .edu-sub.rtl { font-family:'Amiri',serif; direction:rtl; text-align:right; font-size:14px; }
+  .edu-sub.bn  { font-family:'Noto Serif Bengali',serif; font-size:12px; }
+
+  /* ── CONTACT ── */
+  .contact-list { display:flex; flex-direction:column; gap:10px; }
+  .contact-item {
+    display:flex; align-items:center; gap:12px;
+    text-decoration:none; padding:10px 14px;
+    border:1px solid rgba(180,150,90,0.2); border-radius:2px;
+    transition:all 0.2s; background:transparent;
+  }
+  .contact-item:hover { background:var(--parchment); border-color:var(--gold); transform:translateX(3px); }
+  /* RTL contact items flip direction */
+  .contact-item.rtl { flex-direction: row-reverse; }
+  .contact-icon {
+    width:32px; height:32px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .ci-email { background:rgba(45,90,39,0.1); }
+  .ci-fb    { background:rgba(24,119,242,0.1); }
+  .ci-loc   { background:rgba(201,168,76,0.12); }
+  .contact-icon i { font-size:13px; }
+  .ci-email i { color:var(--green-light); }
+  .ci-fb    i { color:#4a90d9; }
+  .ci-loc   i { color:var(--gold); }
+  .contact-text { font-size:13px; color:var(--mid); flex:1; }
+  .contact-text strong {
+    display:block; font-size:10px; color:var(--muted);
+    text-transform:uppercase; letter-spacing:0.1em; font-weight:500; margin-bottom:1px;
+  }
+  .contact-text.rtl { font-family:'Amiri',serif; direction:rtl; text-align:right; font-size:15px; }
+  .contact-text.rtl strong { text-transform:none; letter-spacing:0; font-size:12px; }
+  .contact-text.bn  { font-family:'Noto Serif Bengali',serif; font-size:13px; }
+  .contact-text.bn strong { text-transform:none; letter-spacing:0; font-size:11px; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background:var(--dark); padding:16px 48px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .footer-arabic { font-family:'Amiri',serif; font-size:15px; color:var(--gold); opacity:0.7; }
+  .footer-handle { font-size:11px; color:var(--muted); letter-spacing:0.1em; }
+
+  /* ── VISIBILITY HELPERS ── */
+  .lc      { display:none; }
+  .lc.active    { display:block; }
+  .lc-flex { display:none; }
+  .lc-flex.active { display:flex; }
+  .lc-grid { display:none; }
+  .lc-grid.active { display:grid; }
+
+  @media (max-width:500px) {
+    .header, .section, .footer { padding-left:24px; padding-right:24px; }
+    .name-en { font-size:20px; }
+    .title-row .t-item { font-size:10px; padding:0 7px; }
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- LANGUAGE BAR -->
+  <div class="lang-bar">
+    <span class="lang-bar-label"><i class="fa-solid fa-language" style="margin-right:4px"></i>Language</span>
+    <button class="lang-btn active" data-lang="en">English</button>
+    <button class="lang-btn" data-lang="bn">বাংলা</button>
+    <button class="lang-btn" data-lang="ar">العربية</button>
+    <button class="lang-btn" data-lang="ur">اردو</button>
+    <button class="lang-btn" data-lang="ps">پښتو</button>
+    <button class="lang-btn" data-lang="fa">دری</button>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="bismillah">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+
+    <div class="avatar-ring">
+      <span class="avatar-initial">ع</span>
+    </div>
+
+    <div class="name-block">
+
+      <!-- Name per language -->
+      <span class="name-en  lc active" data-lang="en">Abdullah Muhammad</span>
+      <span class="name-bn  lc"        data-lang="bn">আব্দুল্লাহ মুহাম্মাদ</span>
+      <span class="name-rtl lc"        data-lang="ar">عبدالله محمد</span>
+      <span class="name-rtl lc"        data-lang="ur">عبداللہ محمد</span>
+      <span class="name-rtl lc"        data-lang="ps">عبدالله محمد</span>
+      <span class="name-rtl lc"        data-lang="fa">عبدالله محمد</span>
+
+      <!-- Title row — inline with | dividers -->
+      <div class="title-row lc active" data-lang="en">
+        <span class="t-item">Teacher</span>
+        <span class="t-pipe">|</span>
+        <span class="t-item">Lecturer</span>
+        <span class="t-pipe">|</span>
+        <span class="t-item">Islamic Studies</span>
+      </div>
+      <div class="title-row bn lc" data-lang="bn">
+        <span class="t-item">শিক্ষক</span>
+        <span class="t-pipe">|</span>
+        <span class="t-item">বক্তা</span>
+        <span class="t-pipe">|</span>
+        <span class="t-item">ইসলামিক শিক্ষা</span>
+      </div>
+      <div class="title-row rtl lc" data-lang="ar">
+        <span class="t-item">الدراسات الإسلامية</span>
+        <span class="t-pipe">|</span>
+        <span class="t-item">محاضر</span>
+        <span class="t-pipe">|</span>
+        <span class="t-item">معلم</span>
+      </div>
+      <div class="title-row rtl lc" data-lang="ur">
+        <span class="t-item">اسلامی علوم</span>
+        <span class="t-pipe">|</span>
+        <span class="t-item">لیکچرر</span>
+        <span class="t-pipe">|</span>
+        <span class="t-item">استاد</span>
+      </div>
+      <div class="title-row rtl lc" data-lang="ps">
+        <span class="t-item">اسلامي زده‌کړې</span>
+        <span class="t-pipe">|</span>
+        <span class="t-item">لیکچرر</span>
+        <span class="t-pipe">|</span>
+        <span class="t-item">ښوونکی</span>
+      </div>
+      <div class="title-row rtl lc" data-lang="fa">
+        <span class="t-item">مطالعات اسلامی</span>
+        <span class="t-pipe">|</span>
+        <span class="t-item">استاد</span>
+        <span class="t-pipe">|</span>
+        <span class="t-item">معلم</span>
+      </div>
+
+    </div>
+
+    <!-- Location line -->
+    <div class="location-line lc active" data-lang="en"><i class="fa-solid fa-location-dot"></i> Dhaka, Bangladesh</div>
+    <div class="location-line lc" data-lang="bn" style="font-family:'Noto Serif Bengali',serif"><i class="fa-solid fa-location-dot"></i> ঢাকা, বাংলাদেশ</div>
+    <div class="location-line lc" data-lang="ar" style="font-family:'Amiri',serif;direction:rtl;font-size:16px"><i class="fa-solid fa-location-dot"></i> داكا، بنغلاديش</div>
+    <div class="location-line lc" data-lang="ur" style="font-family:'Amiri',serif;direction:rtl;font-size:16px"><i class="fa-solid fa-location-dot"></i> ڈھاکہ، بنگلہ دیش</div>
+    <div class="location-line lc" data-lang="ps" style="font-family:'Amiri',serif;direction:rtl;font-size:16px"><i class="fa-solid fa-location-dot"></i> داکا، بنگلادیش</div>
+    <div class="location-line lc" data-lang="fa" style="font-family:'Amiri',serif;direction:rtl;font-size:16px"><i class="fa-solid fa-location-dot"></i> داکا، بنگلادیش</div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- ── ABOUT ── -->
+    <div class="section">
+      <div class="section-label">
+        <i class="fa-regular fa-user"></i>
+        <!-- section title switches -->
+        <span class="sl-text lc active" data-lang="en">About</span>
+        <span class="sl-text bn lc"     data-lang="bn">পরিচিতি</span>
+        <span class="sl-text rtl lc"    data-lang="ar">نبذة عني</span>
+        <span class="sl-text rtl lc"    data-lang="ur">تعارف</span>
+        <span class="sl-text rtl lc"    data-lang="ps">پیژندنه</span>
+        <span class="sl-text rtl lc"    data-lang="fa">معرفی</span>
+      </div>
+
+      <p class="about-text lc active" data-lang="en">I am <strong>Abdullah Muhammad</strong>, a teacher and lecturer at the Madrasa level based in Dhaka, Bangladesh. I specialize in <strong>Islamic Jurisprudence (Fiqh)</strong>, Hadith Sciences, and Islamic Studies. I am at the beginning of my teaching journey, driven by a sincere passion for Islamic education and the transmission of classical knowledge.</p>
+      <p class="about-text bn lc" data-lang="bn">আমি <strong>আব্দুল্লাহ মুহাম্মাদ</strong> — ঢাকা, বাংলাদেশে মাদ্রাসা পর্যায়ের একজন শিক্ষক ও বক্তা। আমি <strong>ইসলামী ফিকহ</strong>, হাদিস বিজ্ঞান এবং ইসলামী শিক্ষায় বিশেষজ্ঞ। ইসলামী জ্ঞান প্রচারের প্রতি আন্তরিক আগ্রহ নিয়ে আমি আমার শিক্ষকতার পথে এগিয়ে চলেছি।</p>
+      <p class="about-text rtl lc" data-lang="ar">أنا <strong>عبدالله محمد</strong>، معلم ومحاضر في المدارس الإسلامية بداكا، بنغلاديش. أتخصص في <strong>الفقه الإسلامي</strong> وعلوم الحديث والدراسات الإسلامية. أسير في بداية مسيرتي التعليمية، مدفوعاً بشغف صادق نحو نشر العلم الإسلامي الأصيل.</p>
+      <p class="about-text rtl lc" data-lang="ur">میں <strong>عبداللہ محمد</strong> ہوں — ڈھاکہ، بنگلہ دیش میں مدرسہ سطح کا استاد اور لیکچرر۔ میری تخصص <strong>اسلامی فقہ</strong>، علوم حدیث اور اسلامی علوم میں ہے۔ اسلامی تعلیم کے فروغ کے لیے خلوصِ نیت کے ساتھ میں اپنے تدریسی سفر کا آغاز کر رہا ہوں۔</p>
+      <p class="about-text rtl lc" data-lang="ps">زه <strong>عبدالله محمد</strong> یم — د داکا، بنگلادیش د مدرسې د کچې ښوونکی او لیکچرر. زما تخصص <strong>اسلامي فقه</strong>، د حدیث علومو او اسلامي زده‌کړو کې دی. د اسلامي علومو د خپرولو لپاره د صادقانه لیوالتیا سره خپل سفر پیل کوم.</p>
+      <p class="about-text rtl lc" data-lang="fa">من <strong>عبدالله محمد</strong> هستم — معلم و استاد در سطح مدرسه در داکا، بنگلادیش. تخصص من در <strong>فقه اسلامی</strong>، علوم حدیث و مطالعات اسلامی است. با اشتیاق صادقانه‌ای برای گسترش دانش اسلامی، سفر تدریسم را آغاز کرده‌ام.</p>
+    </div>
+
+    <!-- ── AT A GLANCE ── -->
+    <div class="section">
+      <div class="section-label">
+        <i class="fa-solid fa-chart-simple"></i>
+        <span class="sl-text lc active" data-lang="en">At a Glance</span>
+        <span class="sl-text bn lc"     data-lang="bn">এক নজরে</span>
+        <span class="sl-text rtl lc"    data-lang="ar">لمحة سريعة</span>
+        <span class="sl-text rtl lc"    data-lang="ur">ایک نظر میں</span>
+        <span class="sl-text rtl lc"    data-lang="ps">یوه کتنه</span>
+        <span class="sl-text rtl lc"    data-lang="fa">در یک نگاه</span>
+      </div>
+
+      <div class="stats-row lc-grid active" data-lang="en">
+        <div class="stat"><span class="stat-value">Fiqh</span><span class="stat-label">Specialization</span></div>
+        <div class="stat"><span class="stat-value">Madrasa</span><span class="stat-label">Teaching Level</span></div>
+        <div class="stat"><span class="stat-value">Dhaka</span><span class="stat-label">Based In</span></div>
+      </div>
+      <div class="stats-row lc-grid" data-lang="bn">
+        <div class="stat"><span class="stat-value bn">ফিকহ</span><span class="stat-label bn">বিশেষজ্ঞতা</span></div>
+        <div class="stat"><span class="stat-value bn">মাদ্রাসা</span><span class="stat-label bn">শিক্ষার স্তর</span></div>
+        <div class="stat"><span class="stat-value bn">ঢাকা</span><span class="stat-label bn">অবস্থান</span></div>
+      </div>
+      <div class="stats-row lc-grid" data-lang="ar">
+        <div class="stat"><span class="stat-value rtl">الفقه</span><span class="stat-label rtl">التخصص</span></div>
+        <div class="stat"><span class="stat-value rtl">مدرسة</span><span class="stat-label rtl">مستوى التدريس</span></div>
+        <div class="stat"><span class="stat-value rtl">داكا</span><span class="stat-label rtl">المدينة</span></div>
+      </div>
+      <div class="stats-row lc-grid" data-lang="ur">
+        <div class="stat"><span class="stat-value rtl">فقہ</span><span class="stat-label rtl">تخصص</span></div>
+        <div class="stat"><span class="stat-value rtl">مدرسہ</span><span class="stat-label rtl">تدریسی سطح</span></div>
+        <div class="stat"><span class="stat-value rtl">ڈھاکہ</span><span class="stat-label rtl">شہر</span></div>
+      </div>
+      <div class="stats-row lc-grid" data-lang="ps">
+        <div class="stat"><span class="stat-value rtl">فقه</span><span class="stat-label rtl">تخصص</span></div>
+        <div class="stat"><span class="stat-value rtl">مدرسه</span><span class="stat-label rtl">د تدریس کچه</span></div>
+        <div class="stat"><span class="stat-value rtl">داکا</span><span class="stat-label rtl">ښار</span></div>
+      </div>
+      <div class="stats-row lc-grid" data-lang="fa">
+        <div class="stat"><span class="stat-value rtl">فقه</span><span class="stat-label rtl">تخصص</span></div>
+        <div class="stat"><span class="stat-value rtl">مدرسه</span><span class="stat-label rtl">سطح تدریس</span></div>
+        <div class="stat"><span class="stat-value rtl">داکا</span><span class="stat-label rtl">شهر</span></div>
+      </div>
+    </div>
+
+    <!-- ── SKILLS ── -->
+    <div class="section">
+      <div class="section-label">
+        <i class="fa-solid fa-star-and-crescent"></i>
+        <span class="sl-text lc active" data-lang="en">Knowledge &amp; Skills</span>
+        <span class="sl-text bn lc"     data-lang="bn">জ্ঞান ও দক্ষতা</span>
+        <span class="sl-text rtl lc"    data-lang="ar">العلم والمهارات</span>
+        <span class="sl-text rtl lc"    data-lang="ur">علم اور مہارتیں</span>
+        <span class="sl-text rtl lc"    data-lang="ps">علم او مهارتونه</span>
+        <span class="sl-text rtl lc"    data-lang="fa">علم و مهارت‌ها</span>
+      </div>
+
+      <div class="skills-grid lc-flex active" data-lang="en">
+        <div class="skill-tag primary"><i class="fa-solid fa-scale-balanced"></i> Fiqh — Islamic Law</div>
+        <div class="skill-tag primary"><i class="fa-solid fa-book-open"></i> Hadith Sciences</div>
+        <div class="skill-tag primary"><i class="fa-solid fa-mosque"></i> Islamic Studies</div>
+        <div class="skill-tag"><i class="fa-solid fa-scroll"></i> Aqeedah</div>
+        <div class="skill-tag"><i class="fa-solid fa-feather"></i> Tafsir</div>
+        <div class="skill-tag"><i class="fa-solid fa-pen-nib"></i> Arabic Language</div>
+        <div class="skill-tag"><i class="fa-solid fa-chalkboard-user"></i> Lecturing</div>
+        <div class="skill-tag"><i class="fa-solid fa-school"></i> Madrasa Education</div>
+      </div>
+      <div class="skills-grid lc-flex" data-lang="bn">
+        <div class="skill-tag primary bn"><i class="fa-solid fa-scale-balanced"></i> ফিকহ — ইসলামী আইন</div>
+        <div class="skill-tag primary bn"><i class="fa-solid fa-book-open"></i> হাদিস বিজ্ঞান</div>
+        <div class="skill-tag primary bn"><i class="fa-solid fa-mosque"></i> ইসলামী শিক্ষা</div>
+        <div class="skill-tag bn"><i class="fa-solid fa-scroll"></i> আকিদা</div>
+        <div class="skill-tag bn"><i class="fa-solid fa-feather"></i> তাফসির</div>
+        <div class="skill-tag bn"><i class="fa-solid fa-pen-nib"></i> আরবি ভাষা</div>
+        <div class="skill-tag bn"><i class="fa-solid fa-chalkboard-user"></i> শিক্ষকতা</div>
+        <div class="skill-tag bn"><i class="fa-solid fa-school"></i> মাদ্রাসা শিক্ষা</div>
+      </div>
+      <div class="skills-grid lc-flex" data-lang="ar">
+        <div class="skill-tag primary rtl"><i class="fa-solid fa-scale-balanced"></i> الفقه الإسلامي</div>
+        <div class="skill-tag primary rtl"><i class="fa-solid fa-book-open"></i> علوم الحديث</div>
+        <div class="skill-tag primary rtl"><i class="fa-solid fa-mosque"></i> الدراسات الإسلامية</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-scroll"></i> العقيدة</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-feather"></i> التفسير</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-pen-nib"></i> اللغة العربية</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-chalkboard-user"></i> التدريس</div>
+      </div>
+      <div class="skills-grid lc-flex" data-lang="ur">
+        <div class="skill-tag primary rtl"><i class="fa-solid fa-scale-balanced"></i> اسلامی فقہ</div>
+        <div class="skill-tag primary rtl"><i class="fa-solid fa-book-open"></i> علوم حدیث</div>
+        <div class="skill-tag primary rtl"><i class="fa-solid fa-mosque"></i> اسلامی علوم</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-scroll"></i> عقیدہ</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-feather"></i> تفسیر</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-pen-nib"></i> عربی زبان</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-chalkboard-user"></i> تدریس</div>
+      </div>
+      <div class="skills-grid lc-flex" data-lang="ps">
+        <div class="skill-tag primary rtl"><i class="fa-solid fa-scale-balanced"></i> اسلامي فقه</div>
+        <div class="skill-tag primary rtl"><i class="fa-solid fa-book-open"></i> د حدیث علوم</div>
+        <div class="skill-tag primary rtl"><i class="fa-solid fa-mosque"></i> اسلامي زده‌کړې</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-scroll"></i> عقیده</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-feather"></i> تفسیر</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-pen-nib"></i> عربي ژبه</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-chalkboard-user"></i> تدریس</div>
+      </div>
+      <div class="skills-grid lc-flex" data-lang="fa">
+        <div class="skill-tag primary rtl"><i class="fa-solid fa-scale-balanced"></i> فقه اسلامی</div>
+        <div class="skill-tag primary rtl"><i class="fa-solid fa-book-open"></i> علوم حدیث</div>
+        <div class="skill-tag primary rtl"><i class="fa-solid fa-mosque"></i> مطالعات اسلامی</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-scroll"></i> عقیده</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-feather"></i> تفسیر</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-pen-nib"></i> زبان عربی</div>
+        <div class="skill-tag rtl"><i class="fa-solid fa-chalkboard-user"></i> تدریس</div>
+      </div>
+    </div>
+
+    <!-- ── EDUCATION ── -->
+    <div class="section">
+      <div class="section-label">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span class="sl-text lc active" data-lang="en">Education</span>
+        <span class="sl-text bn lc"     data-lang="bn">শিক্ষা</span>
+        <span class="sl-text rtl lc"    data-lang="ar">التعليم</span>
+        <span class="sl-text rtl lc"    data-lang="ur">تعلیم</span>
+        <span class="sl-text rtl lc"    data-lang="ps">زده‌کړه</span>
+        <span class="sl-text rtl lc"    data-lang="fa">تحصیلات</span>
+      </div>
+
+      <div class="edu-item lc active" data-lang="en">
+        <div class="edu-icon"><i class="fa-solid fa-mosque"></i></div>
+        <div class="edu-body">
+          <div class="edu-title">Islamic &amp; Madrasa Education</div>
+          <div class="edu-sub">Specialization in Fiqh, Hadith &amp; Islamic Sciences &middot; Dhaka, Bangladesh</div>
+        </div>
+      </div>
+      <div class="edu-item lc" data-lang="bn">
+        <div class="edu-icon"><i class="fa-solid fa-mosque"></i></div>
+        <div class="edu-body">
+          <div class="edu-title bn">ইসলামী ও মাদ্রাসা শিক্ষা</div>
+          <div class="edu-sub bn">ফিকহ, হাদিস ও ইসলামী বিষয়ে বিশেষজ্ঞতা &middot; ঢাকা, বাংলাদেশ</div>
+        </div>
+      </div>
+      <div class="edu-item lc" data-lang="ar">
+        <div class="edu-icon"><i class="fa-solid fa-mosque"></i></div>
+        <div class="edu-body">
+          <div class="edu-title rtl">التعليم الإسلامي والمدرسة</div>
+          <div class="edu-sub rtl">تخصص في الفقه والحديث والعلوم الإسلامية &middot; داكا، بنغلاديش</div>
+        </div>
+      </div>
+      <div class="edu-item lc" data-lang="ur">
+        <div class="edu-icon"><i class="fa-solid fa-mosque"></i></div>
+        <div class="edu-body">
+          <div class="edu-title rtl">اسلامی اور مدرسہ تعلیم</div>
+          <div class="edu-sub rtl">فقہ، حدیث اور اسلامی علوم میں تخصص &middot; ڈھاکہ، بنگلہ دیش</div>
+        </div>
+      </div>
+      <div class="edu-item lc" data-lang="ps">
+        <div class="edu-icon"><i class="fa-solid fa-mosque"></i></div>
+        <div class="edu-body">
+          <div class="edu-title rtl">اسلامي او د مدرسې زده‌کړه</div>
+          <div class="edu-sub rtl">د فقه، حدیث او اسلامي علومو تخصص &middot; داکا، بنگلادیش</div>
+        </div>
+      </div>
+      <div class="edu-item lc" data-lang="fa">
+        <div class="edu-icon"><i class="fa-solid fa-mosque"></i></div>
+        <div class="edu-body">
+          <div class="edu-title rtl">تحصیلات اسلامی و مدرسه</div>
+          <div class="edu-sub rtl">تخصص در فقه، حدیث و علوم اسلامی &middot; داکا، بنگلادیش</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── CONTACT ── -->
+    <div class="section">
+      <div class="section-label">
+        <i class="fa-solid fa-address-card"></i>
+        <span class="sl-text lc active" data-lang="en">Contact</span>
+        <span class="sl-text bn lc"     data-lang="bn">যোগাযোগ</span>
+        <span class="sl-text rtl lc"    data-lang="ar">التواصل</span>
+        <span class="sl-text rtl lc"    data-lang="ur">رابطہ</span>
+        <span class="sl-text rtl lc"    data-lang="ps">اړیکه</span>
+        <span class="sl-text rtl lc"    data-lang="fa">تماس</span>
+      </div>
+
+      <!-- Email -->
+      <div class="contact-list">
+        <a href="mailto:hi@abdullahmuhammad.iam.bd" class="contact-item lc active" data-lang="en">
+          <div class="contact-icon ci-email"><i class="fa-regular fa-envelope"></i></div>
+          <div class="contact-text"><strong>Email</strong>hi@abdullahmuhammad.iam.bd</div>
+        </a>
+        <a href="mailto:hi@abdullahmuhammad.iam.bd" class="contact-item lc" data-lang="bn">
+          <div class="contact-icon ci-email"><i class="fa-regular fa-envelope"></i></div>
+          <div class="contact-text bn"><strong>ইমেইল</strong>hi@abdullahmuhammad.iam.bd</div>
+        </a>
+        <a href="mailto:hi@abdullahmuhammad.iam.bd" class="contact-item rtl lc" data-lang="ar">
+          <div class="contact-icon ci-email"><i class="fa-regular fa-envelope"></i></div>
+          <div class="contact-text rtl"><strong>البريد الإلكتروني</strong>hi@abdullahmuhammad.iam.bd</div>
+        </a>
+        <a href="mailto:hi@abdullahmuhammad.iam.bd" class="contact-item rtl lc" data-lang="ur">
+          <div class="contact-icon ci-email"><i class="fa-regular fa-envelope"></i></div>
+          <div class="contact-text rtl"><strong>ای میل</strong>hi@abdullahmuhammad.iam.bd</div>
+        </a>
+        <a href="mailto:hi@abdullahmuhammad.iam.bd" class="contact-item rtl lc" data-lang="ps">
+          <div class="contact-icon ci-email"><i class="fa-regular fa-envelope"></i></div>
+          <div class="contact-text rtl"><strong>برېښنالیک</strong>hi@abdullahmuhammad.iam.bd</div>
+        </a>
+        <a href="mailto:hi@abdullahmuhammad.iam.bd" class="contact-item rtl lc" data-lang="fa">
+          <div class="contact-icon ci-email"><i class="fa-regular fa-envelope"></i></div>
+          <div class="contact-text rtl"><strong>ایمیل</strong>hi@abdullahmuhammad.iam.bd</div>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://web.facebook.com/abdullahmuhammadiambd" target="_blank" class="contact-item lc active" data-lang="en">
+          <div class="contact-icon ci-fb"><i class="fa-brands fa-facebook-f"></i></div>
+          <div class="contact-text"><strong>Facebook</strong>@abdullahmuhammadiambd</div>
+        </a>
+        <a href="https://web.facebook.com/abdullahmuhammadiambd" target="_blank" class="contact-item lc" data-lang="bn">
+          <div class="contact-icon ci-fb"><i class="fa-brands fa-facebook-f"></i></div>
+          <div class="contact-text bn"><strong>ফেসবুক</strong>@abdullahmuhammadiambd</div>
+        </a>
+        <a href="https://web.facebook.com/abdullahmuhammadiambd" target="_blank" class="contact-item rtl lc" data-lang="ar">
+          <div class="contact-icon ci-fb"><i class="fa-brands fa-facebook-f"></i></div>
+          <div class="contact-text rtl"><strong>فيسبوك</strong>@abdullahmuhammadiambd</div>
+        </a>
+        <a href="https://web.facebook.com/abdullahmuhammadiambd" target="_blank" class="contact-item rtl lc" data-lang="ur">
+          <div class="contact-icon ci-fb"><i class="fa-brands fa-facebook-f"></i></div>
+          <div class="contact-text rtl"><strong>فیس بک</strong>@abdullahmuhammadiambd</div>
+        </a>
+        <a href="https://web.facebook.com/abdullahmuhammadiambd" target="_blank" class="contact-item rtl lc" data-lang="ps">
+          <div class="contact-icon ci-fb"><i class="fa-brands fa-facebook-f"></i></div>
+          <div class="contact-text rtl"><strong>فیسبوک</strong>@abdullahmuhammadiambd</div>
+        </a>
+        <a href="https://web.facebook.com/abdullahmuhammadiambd" target="_blank" class="contact-item rtl lc" data-lang="fa">
+          <div class="contact-icon ci-fb"><i class="fa-brands fa-facebook-f"></i></div>
+          <div class="contact-text rtl"><strong>فیسبوک</strong>@abdullahmuhammadiambd</div>
+        </a>
+
+        <!-- Location -->
+        <div class="contact-item lc active" data-lang="en">
+          <div class="contact-icon ci-loc"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="contact-text"><strong>Location</strong>Dhaka, Bangladesh</div>
+        </div>
+        <div class="contact-item lc" data-lang="bn">
+          <div class="contact-icon ci-loc"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="contact-text bn"><strong>লোকেশন</strong>ঢাকা, বাংলাদেশ</div>
+        </div>
+        <div class="contact-item rtl lc" data-lang="ar">
+          <div class="contact-icon ci-loc"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="contact-text rtl"><strong>الموقع</strong>داكا، بنغلاديش</div>
+        </div>
+        <div class="contact-item rtl lc" data-lang="ur">
+          <div class="contact-icon ci-loc"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="contact-text rtl"><strong>مقام</strong>ڈھاکہ، بنگلہ دیش</div>
+        </div>
+        <div class="contact-item rtl lc" data-lang="ps">
+          <div class="contact-icon ci-loc"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="contact-text rtl"><strong>ځای</strong>داکا، بنگلادیش</div>
+        </div>
+        <div class="contact-item rtl lc" data-lang="fa">
+          <div class="contact-icon ci-loc"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="contact-text rtl"><strong>موقعیت</strong>داکا، بنگلادیش</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span class="footer-arabic">جَزَاكَ اللهُ خَيْرًا</span>
+    <span class="footer-handle"><i class="fa-brands fa-facebook-f" style="margin-right:5px;font-size:10px"></i>@abdullahmuhammadiambd</span>
+  </div>
+
+</div><!-- /card -->
+
+<script>
+  const btns = document.querySelectorAll('.lang-btn');
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const lang = btn.dataset.lang;
+
+      btns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.classList.remove('active');
+      });
+
+      document.querySelectorAll(`[data-lang="${lang}"]`).forEach(el => {
+        el.classList.add('active');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
